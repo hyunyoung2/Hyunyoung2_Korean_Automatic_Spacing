@@ -1,0 +1,2 @@
+# Korean language automatic spacing
+ 
