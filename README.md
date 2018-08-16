@@ -10,7 +10,7 @@ Tensorflow version: 1.8.0
 
 If you encounter some error, check the version above once again. 
 
-# Before run predic.py script, download model with downloader shell script
+# Before running predic.py script, download model with downloader shell script
 
 > ./downloader
 
