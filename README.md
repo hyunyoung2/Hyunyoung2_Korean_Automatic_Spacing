@@ -10,6 +10,29 @@ Tensorflow version: 1.8.0
 
 If you encounter some error, check the version above once again. 
 
+# Before run predic.py script, download model with downloader shell script
+
+> ./downloader
+
+```shell
+# nlp-gpu @ nlpgpu in ~/Hyunyoung2/competition/autospacing/concat/EPOCH_10/300/github_repository_for_competition/Hyunyoung2_Korean_Automatic_Spacing on git:master o [20:02:42] 
+$ ./downloader.sh 
+--2018-08-16 20:02:48--  http://nlp.kookmin.ac.kr/hyunyoung2/autospacing/model.tar.gz
+Resolving nlp.kookmin.ac.kr 
+..........
+model.tar.gz                                      100%[===========================================================================================================>] 107.11M   111MB/s    in 1.0s    
+
+2018-08-16 20:02:49 (111 MB/s) - ‘model.tar.gz’ saved [112314441/112314441]
+
+model/
+model/final-135000.index
+model/final-135000.meta
+model/checkpoint
+model/final-135000.data-00000-of-00001
+```
+
+**After downloading the model, You would find out **model** directory, then you can run predict.py.**
+
 # How To Run this Korean automatic spacing program.
 
 > python3 predict.py [-h] [-o OUTPUT] [-n NUMBER] input
