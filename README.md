@@ -12,7 +12,7 @@ If you encounter some error, check the version above once again.
 
 # How To Run this Korean automatic spacing program.
 
->>python3 predict.py [-h] [-o OUTPUT] [-n NUMBER] input
+> python3 predict.py [-h] [-o OUTPUT] [-n NUMBER] input
 
 -h: means help message about how to use this script to run 
 
