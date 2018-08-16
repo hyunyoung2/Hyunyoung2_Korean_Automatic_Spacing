@@ -86,7 +86,7 @@ predict.py: error: the following arguments are required: input
 
 Don't touch **data and model directory**
 
-This file contain vocabulary dictionary and model file after traninig. 
+This file contains vocabulary dictionary and model file after traninig. 
 
 ### an example of running predict.py
 
