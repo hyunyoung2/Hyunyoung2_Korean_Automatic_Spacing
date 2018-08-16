@@ -14,14 +14,14 @@ If you encounter some error, check the version above once again.
 
 > python3 predict.py [-h] [-o OUTPUT] [-n NUMBER] input
 
--h: means help message about how to use this script to run 
+1. -h: means help message about how to use this script to run 
 
--o  OUTPUT: output file you want to get on input file 
+2. -o  OUTPUT: output file you want to get on input file 
 
--n NUMBER: When you have big size file, you could test some batches together. 
+3. -n NUMBER: When you have big size file, you could test some batches together. 
            So "-n" means how much you want to test together maximumally on a test.
 
-input: Input file
+4. input: Input file
 
 If you know abot how to run, see the help message below:
 
