@@ -12,7 +12,7 @@ If you encounter some error, check the version above once again.
 
 # Before running predic.py script, download model with downloader shell script
 
-> ./downloader
+> ./downloader.sh
 
 ```shell
 # nlp-gpu @ nlpgpu in ~/Hyunyoung2/competition/autospacing/concat/EPOCH_10/300/github_repository_for_competition/Hyunyoung2_Korean_Automatic_Spacing on git:master x [20:11:13] 
