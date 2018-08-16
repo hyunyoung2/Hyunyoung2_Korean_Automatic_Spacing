@@ -20,28 +20,6 @@ I_TOKEN = "I"
 
 DEBUGGING_MODE = False 
 
-SAMPLE_RESULT_DIR = os.path.join(os.getcwd(), "sample_result")
-
-def sample():
-    if os.path.isdir(SAMPLE_RESULT_DIR):
-        pass
-    else: 
-        os.mkdir(SAMPLE_RESULT_DIR)
-        if DEBUGGING_MODE:
-            print("\n {} was created".format(SAMPLE_RESULT_DIR))
-   
-# Input file 
-PREDICTION_INPUT_FILE = data_helper.SAMPLE_TEST_X_FILE #os.path.join(os.getcwd(), "sample_test_x")
-# output file 
-PREDICTION_OUTPUT_FILE = os.path.join(SAMPLE_RESULT_DIR, "PREDICTIONS_TAGS")
-
-# print answer!
-TRUTH_FILE= os.path.join(SAMPLE_RESULT_DIR, "TRUTH_PREDICTED")
-
-TRUTH_N_GRAM_FILE = os.path.join(SAMPLE_RESULT_DIR, "TRUTH_PREDICTED_WITH_N_GRAM")
- 
-N_GRAM_FILE = os.path.join(os.getcwd(), "data/five_gram_dict")
-
 def write_file(path, data):
     """Write file 
 
@@ -192,22 +170,3 @@ def n_gram_option(input_data, n_gram, option=1000):
                     input_data[line_idx] = n_gram[line_val][0]
                     if DEBUGGING_MODE:
                         print("After changing: idx{}: {}".format(line_idx, input_data[line_idx]))
-
-
-
-if __name__ == "__main__":
-     sample()
-     inputs, tags = read_input_and_prediction(PREDICTION_INPUT_FILE, PREDICTION_OUTPUT_FILE)
-     nouns_data_spaced = truth_check(inputs, tags)
-
-     write_file(TRUTH_FILE, nouns_data_spaced)
-
-     if False:
-         lines = read_file(TRUTH_FILE)
-         n_gram_data = read_five_gram_dict(N_GRAM_FILE)
-         n_gram = make_five_gram_dict(n_gram_data)
-         n_gram_option(lines, n_gram, option=1)
-    
-         write_file(TRUTH_N_GRAM_FILE, lines)
-
-

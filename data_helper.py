@@ -18,7 +18,8 @@ TOKEN="\n"
 END_TOKEN="</WORD_END>"
 UNK_TOKEN="<UNK>"
 PAD_TOKEN="<PAD>"
- 
+
+
 DIR = os.path.join(os.getcwd(),"data")
 
 if os.path.isdir(DIR):
@@ -28,54 +29,11 @@ else:
         raise()
     except:
         print("You don't have directory name {}!".format(DIR))
-
-WORD_DATA = "no_spacing_word"
-BI_TAG_DATA = "no_spacing_BI_tag"
-
-
-WORD_DATASET_FILE = os.path.join(DIR, WORD_DATA)
-BI_TAG_DATASET_FILE = os.path.join(DIR, BI_TAG_DATA)
-
+ 
 TOTAL_VOCA = "vocabularies"
 
-TRAIN_X ="train_x"
-TRAIN_Y ="train_y"
-
-TEST_X ="test_x"
-TEST_Y ="test_y"
-
-
 # Vocabularies 
-VOCA_FILE = os.path.join(os.getcwd(), TOTAL_VOCA)
-
-# Train and Test, for real
-TRAIN_X_FILE = os.path.join(os.getcwd(), TRAIN_X)
-TRAIN_Y_FILE = os.path.join(os.getcwd(), TRAIN_Y)
-
-TEST_X_FILE = os.path.join(os.getcwd(), TEST_X)
-TEST_Y_FILE = os.path.join(os.getcwd(), TEST_Y)
-
-
-
-
-# Sample 
-SAMPLE_DIR = os.path.join(os.getcwd(), "sample")
-
-def sample_dir():
-
-    if os.path.isdir(SAMPLE_DIR):
-        pass
-    else:
-        os.mkdir(SAMPLE_DIR)
-        print("A directory name {} was created!".format(SAMPLE_DIR))
-        
-SAMPLE = "sample_"
-SAMPLE_VOCA_FILE = os.path.join(SAMPLE_DIR, SAMPLE+TOTAL_VOCA)
-SAMPLE_TRAIN_X_FILE = os.path.join(SAMPLE_DIR, SAMPLE+TRAIN_X)
-SAMPLE_TRAIN_Y_FILE = os.path.join(SAMPLE_DIR, SAMPLE+TRAIN_Y)
-
-SAMPLE_TEST_X_FILE = os.path.join(SAMPLE_DIR, SAMPLE+TEST_X)
-SAMPLE_TEST_Y_FILE = os.path.join(SAMPLE_DIR, SAMPLE+TEST_Y)
+VOCA_FILE = os.path.join(DIR, TOTAL_VOCA)
 
 # For DATA
 IDX2DATA = list()
@@ -870,77 +828,3 @@ def max_length_of_sequences(data_list):
         print("SEQEUNCE: len-{}\n{}".format(len(sequence), sequence[:10]))
      
     return sequence 
-
-
-def sample_text_test():
-    # maximum function checking 
-    print("\n+++++++++ just test ++++++++++")
-    max_len, max_len_data = maximum_length(TEST_X)
-  
-    # Sample data
-    print("\n++++++++++++ Restarting with sample data +++++++++++++")
-    data2idx, idx2data = make_data_voca(TEST_X, padding=True, unknown=True, end=True, bi=True)
-    _write_file(SAMPLE_VOCA_FILE, idx2data)
-    train, test = get_train_and_test_set(TEST_X, TEST_Y, percentage=0.1, random=True)
-  
-    _write_train_and_test(SAMPLE_TRAIN_X_FILE, SAMPLE_TRAIN_Y_FILE, train)
-
-    _write_train_and_test(SAMPLE_TEST_X_FILE, SAMPLE_TEST_Y_FILE, test)
-
-    sample_data2idx, sample_idx2data  =  read_voca_dict(SAMPLE_VOCA_FILE)
-    total = read_x_and_y(SAMPLE_TRAIN_X_FILE, SAMPLE_TRAIN_Y_FILE, sample_data2idx, label2idx=LABEL2IDX)    
-
-    sample_syll_x, sample_bi_gram_x, sample_label = gathering_batches(total, n_per_a_batch=2, random=True, padding=True)
-
-    max_length_of_sequences(sample_syll_x)
-
-if __name__ == "__main__":
-    # For real data. 
-    data, label = read_data_and_label(WORD_DATASET_FILE, BI_TAG_DATASET_FILE)
-
-    data2idx, idx2data = make_data_voca(data, padding=True, unknown=True, end=True, bi=True)
-
-    # Make dictionary for Vocabularies
-    _write_file(VOCA_FILE, idx2data)
-    
-    # split data into train and test 
-    train, test = get_train_and_test_set(data, label, percentage=0.1, random=True)
-    _write_train_and_test(TRAIN_X_FILE, TRAIN_Y_FILE, train)
-    _write_train_and_test(TEST_X_FILE, TEST_Y_FILE, test)
-
-    # Generation of batch
-    if DEBUGGING_MODE:
-        data2idx, idx2data  =  read_voca_dict(VOCA_FILE)
-        total = read_x_and_y(TRAIN_X_FILE, TRAIN_Y_FILE, data2idx, label2idx=LABEL2IDX)
-
-        syll_x, bi_gram_x, label =  gathering_batches(total, n_per_a_batch=10, random=False, padding=True)
-        syll_max_sequences = max_length_of_sequences(syll_x)
-        bi_gram_max_sequences = max_length_of_sequences(bi_gram_x)    
-
-    if DEBUGGING_MODE:
-        sample_dir()
-        sample_text_test()
-
-    #for idx in range(len(sample_syll_x)):
-    #    print(_maximum_length_for_LSTM(sample_syll_x[idx]))
-
-    #max_length_of_sequences(sample_syll_x)
-
-    #max_length_of_sequences(sample_bi_gram_x)
-
-    #max_length_of_sequences(sample_label)
-
-    #sample_syll_x, sample_bi_gram_x, sample_label = gathering_batches(total, n_per_a_batch=2, random=True, padding=True)
-
-    # Batching test
-    #_generate_batch_with_idx(10, 102, False)
-    #_generate_batch_with_idx(50, 102, False)
-    #_generate_batch_with_idx(1, 102, False)
-
-    # Another batching test
-    #_generate_batch_with_data(total, 6, False)
-    #_generate_batch_with_data(total, 5, False)
-    #_generate_batch_with_data(total, 4, False)
-    #_generate_batch_with_data(total, 3, False)
-    #_generate_batch_with_data(total, 2, False)
-    #_generate_batch_with_data(total, 1, False)
