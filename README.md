@@ -90,15 +90,15 @@ But If you type in "-n" option, evaluation time would get shoter as follows:
 
 ```
 # nlp-gpu @ nlpgpu in ~/Hyunyoung2/competition/autospacing/concat/EPOCH_10/300/github_repository_for_competition/Hyunyoung2_Korean_Automatic_Spacing on git:master x [17:52:55] 
-$ python3 predict.py sample_x -o output_file -n 10
+$ python3 predict.py input_file -o output_file -n 10
 /home/nlp-gpu/.local/lib/python3.5/site-packages/tensorflow/python/ops/gradients_impl.py:100: UserWarning: Converting sparse IndexedSlices to a dense Tensor of unknown shape. This may consume a large amount of memory.
   "Converting sparse IndexedSlices to a dense Tensor of unknown shape. "
 
 ============== Your input file is : =================
-sample_x
+input_file
 
 ================ Your output file is: ====================
-/home/nlp-gpu/Hyunyoung2/competition/autospacing/concat/EPOCH_10/300/github_repository_for_competition/Hyunyoung2_Korean_Automatic_Spacing/result/output_file # Default output file
+/home/nlp-gpu/Hyunyoung2/competition/autospacing/concat/EPOCH_10/300/github_repository_for_competition/Hyunyoung2_Korean_Automatic_Spacing/result/output_file 
 ============= your batch size: 10 ====================
 ...........
 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 150/150 [00:25<00:00,  5.88it/s]
