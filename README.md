@@ -15,13 +15,15 @@ If you encounter some error, check the version above once again.
 > ./downloader.sh
 
 ```shell
-# nlp-gpu @ nlpgpu in ~/Hyunyoung2/competition/autospacing/concat/EPOCH_10/300/github_repository_for_competition/Hyunyoung2_Korean_Automatic_Spacing on git:master x [20:18:19] 
+# nlp-gpu @ nlpgpu in ~/Hyunyoung2/competition/autospacing/concat/EPOCH_10/300/github_repository_for_competition/Hyunyoung2_Korean_Automatic_Spacing on git:master x [20:25:40] 
 $ ./downloader.sh 
 downloading........
+
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-100  107M  100  107M    0     0   108M      0 --:--:-- --:--:-- --:--:--  108M
+100  107M  100  107M    0     0   110M      0 --:--:-- --:--:-- --:--:--  110M
 uncompressing......
+
 model/
 model/final-135000.index
 model/final-135000.meta
