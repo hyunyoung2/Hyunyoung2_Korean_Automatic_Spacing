@@ -2,9 +2,14 @@
 
 # this shell script is downloader for model trained. 
 
+echo "downloading........"
+
 MODEL="model.tar.gz"
 
-wget "http://nlp.kookmin.ac.kr/hyunyoung2/autospacing/${MODEL}"
+curl -O "http://nlp.kookmin.ac.kr/hyunyoung2/autospacing/${MODEL}"
+
+
+echo "uncompressing......"
 
 tar -xvzf ${MODEL}
 
