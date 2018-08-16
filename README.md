@@ -65,7 +65,7 @@ This file contain vocabulary dictionary and model file after traninig.
 
 In order to get result of Korean automatic spacing, If you type in as follows:
 
->> python3 predict.py input_file -o output_file
+> python3 predict.py input_file -o output_file
 
 ````shell
 # nlp-gpu @ nlpgpu in ~/Hyunyoung2/competition/autospacing/concat/EPOCH_10/300/github_repository_for_competition/Hyunyoung2_Korean_Automatic_Spacing on git:master x [17:46:00] 
