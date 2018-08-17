@@ -1,4 +1,4 @@
-# Korean Automatic Spacing(한국어 자동 띄어 쓰기)
+# Korean Automatic Spacing(한국어 자동 띄어 쓰기)-close
  
 This Korean automatic spacing is made, in particular, on the following version.
 
