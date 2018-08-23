@@ -154,7 +154,7 @@ bias = tf.get_variable("CRF_BIAS", [NUM_TAGS])
 if DEBUGGING_MODE:
     print("\n=================== Checking Graph input ========================")
     print("\n++++++++++ placeholder +++++++++++")
-    print("max_length_per_a_batch: {}".format(max_length_per_a_bathc))
+    print("max_length_per_a_batch: {}".format(max_length_per_a_batch))
     print("syllable_char: {}".format(syllable_char))
     print("bi_gram_word: {}".format(bi_gram_word))
     print("max_syllable_sequences: {}".format(max_syllable_sequences))
