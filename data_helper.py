@@ -548,9 +548,9 @@ def read_x_and_y(path_x, path_y, data2idx=None, label2idx=None):
 
 
     if data2idx != None and label2idx != None:
-       data = mapping_data2idx(data, data2idx, name="SYLLABLE_DATA")
-       label = mapping_data2idx(label, label2idx, name="LABEL")
-       bi_gram_data = mapping_data2idx(bi_gram_data, data2idx, name="BI_GRAM_DATA")
+        data = mapping_data2idx(data, data2idx, name="SYLLABLE_DATA")
+        label = mapping_data2idx(label, label2idx, name="LABEL")
+        bi_gram_data = mapping_data2idx(bi_gram_data, data2idx, name="BI_GRAM_DATA")
 
     total = list(zip(data, bi_gram_data, label))
 
