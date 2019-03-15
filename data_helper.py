@@ -655,21 +655,15 @@ def _generate_batch_with_data(total_data,  n_per_a_batch, random):
     if random:
        shuffle(total_data)
 
-    n_batches = _get_length_of_a_batch(len(total_data), n_per_a_batch)
-
     batches = list()
 
-    for idx in range(n_batches):
-        if idx == n_batches-1:
-            batches.append(total_data[n_per_a_batch*idx:])
-        else:
-            batches.append(total_data[n_per_a_batch*idx:n_per_a_batch*(idx+1)])
+    for idx in range(0, len(total_data), n_per_a_batch):
+        batches.append(total_data[idx:idx+n_per_a_batch])
 
     if DEBUGGING_MODE:
         print("\n=================== Batch Generation with data in _generate_batch_with_data function =================")
         print("TOTAL_SIZE_OF_DATA: len-{}\n{}".format(len(total_data), total_data[0:10]))
         print("SHUFFLE: {}".format(random))
-        print("THE # of batches: {}".format(n_batches))
         print("EACH BATCHES: type-{}, len-{}, each_len-{}\n{}".format(type(batches), len(batches), len(batches[0]), batches[0:10]))
         print("THE END OF BATCHE: type-{}, end_len-{},\n{}".format(type(batches), len(batches[-1]), batches[-1]))
 
