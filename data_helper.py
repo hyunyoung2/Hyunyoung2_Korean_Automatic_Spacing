@@ -601,43 +601,6 @@ def _get_length_of_a_batch(total_size, n_per_a_batch):
     """
     return int(total_size / n_per_a_batch)
 
-# This function is need for fixing
-def _generate_batch_with_idx(n_per_a_batch, total_data_len, random):
-    """Generate batches based on index number, BUT this function need to be fixed
-
-    Args:
-        n_per_a_batch(int)
-        total_data_len(int)
-        random(bool)
-    
-    Return:
-        batches(list):
-    """
-    total_data_idx = list(range(total_data_len))
-
-    if random:
-        shuffle(total_data_idx)
-
-    n_batches = _get_length_of_a_batch(total_data_len, n_per_a_batch) 
-    
-    batches = list()
-
-    for idx in range(n_batches):
-        if idx == n_batches-1:
-            batches.append(total_data_idx[n_per_a_batch*idx:])
-        else:
-            batches.append(total_data_idx[n_per_a_batch*idx:n_per_a_batch*(idx+1)])
-    
-    if DEBUGGING_MODE:
-        print("\n=================== Batch Generation =================")
-        print("TOTAL_SIZE_OF_DATA: len-{}, list_len-{}\n{}".format(total_data_len, len(total_data_idx), total_data_idx[:10]))
-        print("SHUFFLE: {}".format(random))
-        print("THE # of batches: {}".format(n_batches))
-        print("EACH BATCHES: type-{}, len-{}, each_len-{}\n{}".format(type(batches), len(batches), len(batches[0]), batches[:10]))
-        print("THE END OF BATCHE: type-{}, end_len-{},\n{}".format(type(batches), len(batches[-1]), batches[-1]))
-
-    return batches
-
 
 def _generate_batch_with_data(total_data,  n_per_a_batch, random):
     """Generate batches using data with zip 
