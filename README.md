@@ -1,5 +1,7 @@
 # Korean Automatic Spacing(한국어 자동 띄어 쓰기)-close
  
+- This is the same from [Hyunyoung2_Korean_Automatic_Spacing_Open](https://github.com/hyunyoung2/Hyunyoung2_Korean_Automatic_Spacing_Open). the reasone this codes is separate is because I have to submit this code to two parts. 
+ 
 This Korean automatic spacing is made, in particular, on the following version.
 
 ```
